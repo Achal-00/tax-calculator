@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Space Mono", monospace;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --strong-cyan: hsl(172, 67%, 45%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-greyish-cyan: hsl(186, 14%, 43%);
+  --greyish-cyan: hsl(184, 14%, 56%);
+  --light-greyish-cyan: hsl(185, 41%, 84%);
+  --very-light-greyish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --red: rgb(219, 0, 0);
+}
+
+body {
+  background-color: var(--light-greyish-cyan);
+  min-height: 100dvh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--dark-greyish-cyan);
+  letter-spacing: 0.5rem;
+}
+
+form {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+
+.field-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.field-section label {
+  color: var(--dark-greyish-cyan);
+  font-weight: 700;
+}
+
+input,
+select {
+  height: 2.5rem;
+  background-color: var(--very-light-greyish-cyan);
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  padding-left: 1rem;
+}
+
+.field-section input::placeholder {
+  color: var(--greyish-cyan);
+}
+
+.field-section input:hover,
+select:hover {
+  border: 1px solid var(--strong-cyan);
+}
+
+form button {
+  margin-top: 1rem;
+  border: none;
+  background-color: var(--strong-cyan);
+  color: var(--white);
+  height: 2.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+form button:hover,
+.overlay button:hover {
+  opacity: 0.8;
+}
+
+.tooltip,
+.tooltip-error {
+  position: relative;
+  border-radius: 100%;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1px solid var(--greyish-cyan);
+  color: var(--greyish-cyan);
+  display: inline-block;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.tooltip:before,
+.tooltip:after,
+.tooltip-error::before,
+.tooltip-error::after {
+  position: absolute;
+  content: "";
+  display: none;
+}
+
+.tooltip:before,
+.tooltip-error::before {
+  border-width: 10px 8px 0 8px;
+  border-style: solid;
+  border-color: var(--dark-greyish-cyan) transparent transparent transparent;
+  top: -15px;
+  transform: translateY(20px);
+}
+
+.tooltip:after,
+.tooltip-error::after {
+  content: attr(data-tooltip);
+  background: var(--dark-greyish-cyan);
+  color: var(--white);
+  width: 200px;
+  height: 95px;
+  top: -110px;
+  left: -10px;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  transform: translateY(20px);
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after,
+.tooltip-error:hover::before,
+.tooltip-error:hover::after {
+  display: block;
+  transform: translateY(-2px);
+}
+
+.input-section {
+  width: 100%;
+  position: relative;
+}
+
+.input-section input,
+.input-section select {
+  width: 100%;
+}
+
+.tooltip-error {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid var(--red);
+  color: var(--red);
+  display: none;
+}
+
+.tooltip-error:after {
+  height: 55px;
+  top: -70px;
+}
+
+.container > div {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  background: var(--white);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100%;
+  border-radius: 1rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.overlay h1 {
+  font-size: 1.5rem;
+  color: var(--dark-greyish-cyan);
+  letter-spacing: 0;
+}
+
+.overlay h2 {
+  color: var(--very-dark-cyan);
+}
+
+.overlay h3 {
+  font-size: 0.8rem;
+  color: var(--dark-greyish-cyan);
+}
+
+.overlay button {
+  background-color: var(--strong-cyan);
+  color: var(--white);
+  border: none;
+  padding: 0.3rem 2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  form {
+    min-width: 32rem;
+  }
+}

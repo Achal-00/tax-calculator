@@ -7,6 +7,110 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="container">
+      <h1>TAX<br />CALCULATOR</h1>
+      <div>
+        <form>
+          <div class="field-section">
+            <label for="gross-income"
+              >Enter gross annual income
+              <span
+                class="tooltip"
+                data-tooltip="Gross annual income is your total salary in a year before any deductions"
+                >?</span
+              ></label
+            >
+            <div class="input-section">
+              <input
+                type="text"
+                id="gross-income"
+                placeholder="Enter gross annual income"
+              />
+              <span
+                class="tooltip-error gross-error"
+                data-tooltip="Please enter numbers only"
+                >!</span
+              >
+            </div>
+          </div>
+          <div class="field-section">
+            <label for="extra-income"
+              >Enter extra income
+              <span
+                class="tooltip"
+                data-tooltip="Gross annual income is your total salary in a year before any deductions"
+                >?</span
+              ></label
+            >
+            <div class="input-section">
+              <input
+                type="text"
+                id="extra-income"
+                placeholder="Enter extra income from other sources"
+              />
+              <span
+                class="tooltip-error extra-error"
+                data-tooltip="Please enter numbers only"
+                >!</span
+              >
+            </div>
+          </div>
+          <div class="field-section">
+            <label for="age-group"
+              >Enter age group
+              <span
+                class="tooltip"
+                data-tooltip="Gross annual income is your total salary in a year before any deductions"
+                >?</span
+              ></label
+            >
+            <div class="input-section">
+              <select name="age-group" id="age-group">
+                <option disabled selected value></option>
+                <option value="30">&lt; 40</option>
+                <option value="40">&ge; 40 & &lt; 60</option>
+                <option value="10">&ge; 60</option>
+              </select>
+              <span
+                class="tooltip-error age-error"
+                data-tooltip="Please select an age group"
+                >!</span
+              >
+            </div>
+          </div>
+          <div class="field-section">
+            <label for="total-deduction"
+              >Enter total applicable deductions
+              <span
+                class="tooltip"
+                data-tooltip="Gross annual income is your total salary in a year before any deductions"
+                >?</span
+              ></label
+            >
+            <div class="input-section">
+              <input
+                type="text"
+                id="total-deduction"
+                placeholder="Add total applicable deductions"
+              />
+              <span
+                class="tooltip-error deduction-error"
+                data-tooltip="Please enter numbers only"
+                >!</span
+              >
+            </div>
+          </div>
+          <button>Submit</button>
+        </form>
+        <div class="overlay">
+          <h1>Your overall income will be</h1>
+          <h2 class="overall-income"></h2>
+          <h3>After tax deductions</h3>
+          <button onclick="modalClose()">Close</button>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
